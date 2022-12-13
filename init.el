@@ -268,11 +268,26 @@
   :hook (neotree-mode-hook imenu-list-minor-mode-hook minimap-mode-hook))
 
 ;; Theme
-(leaf leaf-convert
-  :require spaceline-config
+(leaf spaceline
+  :doc "Modeline configuration library for powerline"
+  :req "emacs-24.4" "cl-lib-0.5" "powerline-2.3" "dash-2.11.0" "s-1.10.0"
+  :tag "spacemacs" "powerline" "mode-line" "emacs>=24.4"
+  :url "https://github.com/TheBB/spaceline"
+  :added "2022-12-13"
+  :emacs>= 24.4
+  :ensure t
+  :after powerline
   :config
   (spaceline-spacemacs-theme)
-  (load-theme 'spacemacs-dark t))
+  )
+
+(leaf spacemacs-theme
+  :doc "Color theme with a dark and light versions"
+  :added "2022-12-13"
+  :ensure t
+  :config
+  (load-theme 'spacemacs-dark t)
+  )
 
 (leaf leaf-convert
   :config
@@ -286,7 +301,20 @@
   :bind (("C-z" . undo)))
 
 (provide 'init)
-;; Local Variables:
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(magit pyvenv lsp-pyright lsp-ui lsp-mode flycheck-inline flycheck yatemplate yasnippet-snippets yasnippet company py-isort mwim whitespace rainbow-delimiters highlight-indent-guides blacken smartparens macrostep leaf-tree leaf-convert blackout el-get hydra leaf-keywords leaf)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+ ;; Local Variables:
 ;; indent-tabs-mode: nil
 ;; End:
 
